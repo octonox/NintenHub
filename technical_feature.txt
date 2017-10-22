@@ -1,0 +1,13 @@
+This file talk about the technicals features of consoles emulated.
+
+NES:
+RAM-> 2Kb
+ROM-> 48Kb
+Video RAM-> 32Kb
+Resolution-> 256x240 px
+
+Game Boy:
+RAM-> 8Kb
+Video RAM-> 8Kb
+Resolution-> 160x144 px
+Clock Speed-> 4.194
