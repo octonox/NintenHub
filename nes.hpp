@@ -1,7 +1,10 @@
+/*File who define the NES class (NES emulator) and informations about features of NES*/
+
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <cstdio>
 
 #define RAMSIZE 2000
 #define VIDEORAMSIZE 32000

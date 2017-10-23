@@ -1,12 +1,13 @@
 # depslib dependency file v1.0
-1508681993 source:c:\users\public\documents\nintendhub\main.cpp
+1508781886 source:c:\users\public\documents\nintendhub\main.cpp
 	"nes.hpp"
 
-1508683415 c:\users\public\documents\nintendhub\nes.hpp
+1508779288 c:\users\public\documents\nintendhub\nes.hpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	<string>
 	<fstream>
+	<cstdio>
 
 1486739997 c:\sfml-2.4.2\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -395,4 +396,7 @@
 	<SFML/System/String.hpp>
 	<string>
 	<vector>
+
+1508782451 source:c:\users\public\documents\nintendhub\nes.cpp
+	"nes.hpp"
 
