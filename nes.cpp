@@ -44,6 +44,14 @@ void NES::start()
     //We put each byte in the buffer
     file.read(buffer, lenght);
 
+    //Now comes the time of interpretation
+    bool continuer = true;
+    int current_byte = 0x00;
+    while(continuer)
+    {
+        char opcode = buffer[current_byte];
+    }
+
     delete[] buffer;
     file.close();
 }
