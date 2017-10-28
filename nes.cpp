@@ -1,9 +1,9 @@
 #include "nes.hpp"
 
-NES::NES(std::string const& dumpfile)
+NES::NES(std::string const& romfile)
 {
     //We get the path of the game
-    m_dump = dumpfile;
+    m_rom = romfile;
 
     //We do an dynamic allocation of the RAM
     m_ram = new char[RAMSIZE];
@@ -14,6 +14,11 @@ NES::NES(std::string const& dumpfile)
     m_video_ram = new char[VIDEORAMSIZE];
     for(int i {0};i < VIDEORAMSIZE;++i)
         m_video_ram[i] = 0x00;
+
+    for(int i {0};i < 3;++i)
+        m_registers[i] = 0x00;
+
+    m_status_flags = 00000000;
 }
 
 NES::~NES()
@@ -24,7 +29,7 @@ NES::~NES()
 
 void NES::start()
 {
-    std::ifstream file(m_dump, std::ifstream::binary);
+    std::ifstream file(m_rom, std::ifstream::binary);
     if(!file)
         std::cerr << "Dump cannot be opened...\n";
 
@@ -45,12 +50,6 @@ void NES::start()
     file.read(buffer, lenght);
 
     //Now comes the time of interpretation
-    bool continuer = true;
-    int current_byte = 0x00;
-    while(continuer)
-    {
-        char opcode = buffer[current_byte];
-    }
 
     delete[] buffer;
     file.close();
