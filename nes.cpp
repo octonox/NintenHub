@@ -1,4 +1,5 @@
 #include "nes.hpp"
+#define INT(number) static_cast<int>(number)
 
 NES::NES(std::string const& romfile)
 {
@@ -50,6 +51,27 @@ void NES::start()
     file.read(buffer, lenght);
 
     //Now comes the time of interpretation
+    bool continuer {true};
+    char PC {0};
+    std::cout << INT(buffer[1]);
+    while(continuer)
+    {
+        char opcode[2] { buffer[INT(PC)], buffer[INT(PC)+1] };
+        PC += 2;
+        /*LDA*/
+        if(opcode[0] == 0xA9) //immediate
+        {
+            m_registers[INT(registers::A)] = opcode[1]; //We put the immediate value in the accumulator
+        }
+        else if(opcode[0] == 0xA5) //Memory
+        {
+            m_registers[INT(registers::A)] = m_ram[INT(opcode[1])]; //We put in the accumulator the containance of the specified address
+        }
+        else if(opcode[0] == 0xB5) //Memory + X
+        {
+            m_registers[INT(registers::A)] = m_ram[INT(opcode[1])] + m_registers[INT(registers::X)];
+        }
+    }
 
     delete[] buffer;
     file.close();
